@@ -8,7 +8,7 @@ const pay = require('paypercall')({
 , accessExp:   process.env.ACCESS_EXPIRY
 })
 
-const ifttt = require('./ifttt')(process.env.IFTTT_KEY, process.env.IFTTT_PREFIX)
+const ifttt = require('./ifttt')(process.env.IFTTT_KEY, process.env.IFTTT_PREFIX || 'ifpaytt_')
 
 const getPrice = event => process.env[`PRICE_${event.toUpperCase()}`]
 
