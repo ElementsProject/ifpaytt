@@ -1,6 +1,6 @@
 {
   "name": "ifpaytt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Trigger IFTTT actions with Bitcoin Lightning payments",
   "bin": "dist/cli.js",
   "main": "dist/app.js",
