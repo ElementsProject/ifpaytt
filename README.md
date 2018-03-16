@@ -1,5 +1,8 @@
 # If Pay Then That
 
+[![npm release](https://img.shields.io/npm/v/ifpaytt.svg)](https://www.npmjs.com/package/ifpaytt)
+[![MIT license](https://img.shields.io/github/license/shesek/ifpaytt.svg)](https://github.com/shesek/ifpaytt/blob/master/LICENSE)
+
 Trigger IFTTT actions with Bitcoin Lightning payments.
 
 Powered by :zap: [Lightning Charge](https://github.com/ElementsProject/lightning-charge) and [paypercall](https://github.com/shesek/paypercall).
