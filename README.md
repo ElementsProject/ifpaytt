@@ -69,7 +69,7 @@ That's it! The server is now ready to accept payments and trigger IFTTT actions.
     HTTP/1.1 200 OK
     Content-Type: text/plain
 
-    Congratulations! You've fired the lightup_room404 event
+    Congratulations! You've fired the ifpaytt_lightup_room404 event
     ```
 
     (if `value[1-3]` are not set, they'll [automatically be populated](https://github.com/shesek/ifpaytt/blob/master/src/app.js#L40-L42)
