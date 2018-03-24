@@ -2,6 +2,8 @@
 
 [![npm release](https://img.shields.io/npm/v/ifpaytt.svg)](https://www.npmjs.com/package/ifpaytt)
 [![MIT license](https://img.shields.io/github/license/shesek/ifpaytt.svg)](https://github.com/shesek/ifpaytt/blob/master/LICENSE)
+[![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![IRC](https://img.shields.io/badge/chat-on%20freenode-brightgreen.svg)](https://webchat.freenode.net/?channels=lightning-charge)
 
 Trigger IFTTT actions with Bitcoin Lightning payments.
 
