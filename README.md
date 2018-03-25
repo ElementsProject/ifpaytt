@@ -5,7 +5,7 @@
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![IRC](https://img.shields.io/badge/chat-on%20freenode-brightgreen.svg)](https://webchat.freenode.net/?channels=lightning-charge)
 
-Trigger IFTTT actions with Bitcoin Lightning payments.
+Use Bitcoin Lightning payments as the _trigger_ for IFTTT (If This Then That) _actions_.
 
 Powered by :zap: [Lightning Charge](https://github.com/ElementsProject/lightning-charge) and [paypercall](https://github.com/shesek/paypercall).
 
@@ -16,6 +16,8 @@ $ npm install -g ifpaytt
 ```
 
 ## Setup
+
+To setup a Lightning-powered IFTTT applet, you create a webhook trigger, link that to your action, then use the `ifpaytt` server to enable the webhook.
 
 1. Setup [Lightning Charge](https://github.com/ElementsProject/lightning-charge).
 
@@ -41,6 +43,8 @@ $ npm install -g ifpaytt
 That's it! The server is now ready to accept payments and trigger IFTTT actions.
 
 ## Paying to trigger actions
+
+A user can now access the IFTTT action through a three-part process:
 
 1. Send an empty `POST` request to `/{event-name}` to get the BOLT11 payment request and the `X-Token` header:
 
