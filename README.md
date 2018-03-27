@@ -1,13 +1,13 @@
 # If Pay Then That
 
 [![npm release](https://img.shields.io/npm/v/ifpaytt.svg)](https://www.npmjs.com/package/ifpaytt)
-[![MIT license](https://img.shields.io/github/license/shesek/ifpaytt.svg)](https://github.com/shesek/ifpaytt/blob/master/LICENSE)
+[![MIT license](https://img.shields.io/github/license/ElementsProject/ifpaytt.svg)](https://github.com/ElementsProject/ifpaytt/blob/master/LICENSE)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![IRC](https://img.shields.io/badge/chat-on%20freenode-brightgreen.svg)](https://webchat.freenode.net/?channels=lightning-charge)
 
-Trigger IFTTT actions with Bitcoin Lightning payments.
+Use Bitcoin Lightning payments as the _trigger_ for IFTTT (If This Then That) _actions_.
 
-Powered by :zap: [Lightning Charge](https://github.com/ElementsProject/lightning-charge) and [paypercall](https://github.com/shesek/paypercall).
+Powered by :zap: [Lightning Charge](https://github.com/ElementsProject/lightning-charge) and [paypercall](https://github.com/ElementsProject/paypercall).
 
 ## Install
 
@@ -17,23 +17,23 @@ $ npm install -g ifpaytt
 
 ## Setup
 
-1. Setup [Lightning Charge](https://github.com/ElementsProject/lightning-charge).
+Setup [Lightning Charge](https://github.com/ElementsProject/lightning-charge), then:
 
-2. Get your IFTTT maker key from [IFTTT's Webhook settings page](https://ifttt.com/services/maker_webhooks/settings)
+1. Get your IFTTT maker key from [IFTTT's Webhook settings page](https://ifttt.com/services/maker_webhooks/settings)
    (shown as `https://maker.ifttt.com/use/[MAKER-KEY-HERE]`).
 
-3. Open the [new applet page](https://ifttt.com/create), click "this", enter "Webhooks", click "Receive a web request",
+2. Open the [new applet page](https://ifttt.com/create), click "this", enter "Webhooks", click "Receive a web request",
    enter a descriptive event name prefixed by `ifpaytt_` containing only numbers, lowercase letters and `_`
    (e.g. `ifpaytt_lightup_room404` or `ifpaytt_vend_machine137_item56`),
-   and hit "Create Trigger".
+   and click "Create Trigger".
 
-4. Configure your "then" action and finish creating the IFTTT applet.
+3. Configure your "then" action and finish creating the IFTTT applet.
 
-5. Start the `ifpaytt` server:
+4. Start the `ifpaytt` server:
 
    ```bash
-   $ ifpaytt --charge-token [mySecretToken] --ifttt-key [myMakerKey] --port 6000 --currency BTC \
-             --price-lightup_room404 0.00001 --price-vend_machine137_item56 0.00023
+   $ ifpaytt --charge-token [mySecretToken] --ifttt-key [myMakerKey] --currency BTC \
+             --price-lightup_room404 0.00001 --price-vend_machine137_item56 0.000063
 
    Running on http://localhost:6000
    ```
@@ -42,14 +42,16 @@ That's it! The server is now ready to accept payments and trigger IFTTT actions.
 
 ## Paying to trigger actions
 
+Users can access the IFTTT action through a three-part process:
+
 1. Send an empty `POST` request to `/{event-name}` to get the BOLT11 payment request and the `X-Token` header:
 
     ```bash
     $ curl -i -X POST http://localhost:6000/lightup_room404
 
     HTTP/1.1 402 Payment Required
-    Content-Type: application/vnd.lightning.bolt11
     X-Token: lmbdmJeoSQ0ZCB5egtnph.af1eupleFBVuhN2vrbRuDLTlsnnUPYRzDWdL5HtWykY
+    Content-Type: application/vnd.lightning.bolt11
 
     lnbcrt8925560p1pdfh7n2pp54g5avyupe70l988h30u0hy8agpj2z7qsveu7ejhys97j98rgez0...
     ```
@@ -74,7 +76,7 @@ That's it! The server is now ready to accept payments and trigger IFTTT actions.
     Congratulations! You've fired the ifpaytt_lightup_room404 event
     ```
 
-    (if `value[1-3]` are not set, they'll [automatically be populated](https://github.com/shesek/ifpaytt/blob/master/src/app.js#L40-L42)
+    (if `value[1-3]` are not set, they'll [automatically be populated](https://github.com/ElementsProject/ifpaytt/blob/master/src/app.js#L40-L42)
     with some useful information about the payment.)
 
 ## CLI options

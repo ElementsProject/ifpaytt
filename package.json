@@ -9,7 +9,7 @@
     "dist": "babel -d dist src",
     "prepublishOnly": "npm run dist"
   },
-  "repository": "https://github.com/shesek/ifpaytt.git",
+  "repository": "https://github.com/ElementsProject/ifpaytt.git",
   "keywords": [
     "bitcoin",
     "lightning",
